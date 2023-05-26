@@ -17,38 +17,41 @@
 
 <body>
 
-@extends('layouts.app')
+    @extends('layouts.app')
 
-@section('content')
-    <h1 class="text-center py-5">I nostre pizze</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Pizza</th>
-                            <th scope="col">Ingredienti</th>
-                            <th scope="col">Base bianca</th>
-                            <th scope="col">Prezzo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($pizzas as $pizza)
+    @section('content')
+        <div class="container d-flex align-items-center justify-content-center">
+            <img src="{{ Vite::asset('resources\img\boolpizza_logo.svg') }}" alt="Yummy!">
+        </div>
+        <h1 class="text-center py-5">Le nostre pizze</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <th>{{ $pizza->nome }}</th>
-                                <td>{{ $pizza->ingredienti }}</td>
-                                <td>{{ $pizza->base_bianca }}</td>
-                                <td>{{ $pizza->prezzo }}</td>
+                                <th scope="col">Pizza</th>
+                                <th scope="col">Ingredienti</th>
+                                <th scope="col">Base bianca</th>
+                                <th scope="col">Prezzo</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($pizzas as $pizza)
+                                <tr>
+                                    <th>{{ $pizza->nome }}</th>
+                                    <td>{{ $pizza->ingredienti }}</td>
+                                    <td>{{ $pizza->base_bianca }}</td>
+                                    <td>{{ $pizza->prezzo }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-@endsection
-    
+    @endsection
+
 
 </body>
 
