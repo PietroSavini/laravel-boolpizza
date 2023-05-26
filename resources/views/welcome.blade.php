@@ -21,7 +21,7 @@
 
     @section('content')
         <div class="container d-flex align-items-center justify-content-center">
-            <img src="{{ Vite::asset('resources\img\boolpizza_logo.svg') }}" alt="Yummy!">
+            <img src="{{ Vite::asset('resources\img\boolpizza_logo.svg') }}" alt="Yummy!" width="200" height="200">
         </div>
         <h1 class="text-center py-5">Le nostre pizze</h1>
         <div class="container">
