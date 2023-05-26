@@ -38,7 +38,17 @@
                             <tr>
                                 <th>{{ $pizza->nome }}</th>
                                 <td>{{ $pizza->ingredienti }}</td>
-                                <td>{{ $pizza->base_bianca }}</td>
+                                <td>@if($pizza->base_bianca)
+                                        @php
+                                            $pizza->base_bianca ="Bianca";
+                                        @endphp
+                                    @else 
+                                        @php
+                                            $pizza->base_bianca="Rossa";
+                                        @endphp
+                                    @endif
+                                    {{ $pizza->base_bianca }}
+                                </td>
                                 <td>{{ $pizza->prezzo }}€</td>
                             </tr>
                         @endforeach
