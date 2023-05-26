@@ -39,7 +39,7 @@
                                 <th>{{ $pizza->nome }}</th>
                                 <td>{{ $pizza->ingredienti }}</td>
                                 <td>{{ $pizza->base_bianca }}</td>
-                                <td>{{ $pizza->prezzo }}</td>
+                                <td>{{ $pizza->prezzo }}€</td>
                             </tr>
                         @endforeach
                     </tbody>
