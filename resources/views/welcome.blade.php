@@ -23,7 +23,7 @@
         <div class="container d-flex justify-content-center p-2" height="200">
             <img src="{{ Vite::asset('resources\img\boolpizza_logo.svg') }}" alt="Yummy pizza!!!!" width="200">
         </div>
-        <h1 class="text-center py-5">I nostre pizze</h1>
+        <h1 class="text-center py-5">Le nostre pizze</h1>
         <div class="container">
             <div class="row">
                 <div class="col">
