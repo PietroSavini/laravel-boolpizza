@@ -81,7 +81,10 @@ class pizzaResource extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $pizza = Pizza::findOrFail($id);
+        $pizza->update($data);
+        return redirect()->route('pizza.index');
     }
 
     /**
