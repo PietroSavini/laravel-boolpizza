@@ -16,4 +16,5 @@ use App\Http\Controllers\Guest\PizzaController;
 */
 
 Route::get("/", [PizzaController::class, "index"]);
+
 Route::resource('pizza', pizzaResource::class);
