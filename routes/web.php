@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\pizzaResource;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guest\PizzaController;
 
@@ -13,4 +14,6 @@ use App\Http\Controllers\Guest\PizzaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
- Route::get("/", [PizzaController::class, "index"]);
+
+Route::get("/", [PizzaController::class, "index"]);
+Route::resource('pizza', pizzaResource::class);
