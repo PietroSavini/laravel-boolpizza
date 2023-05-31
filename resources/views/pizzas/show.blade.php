@@ -12,8 +12,17 @@
                     <div class="card-body">
                         <h5 class="card-title">Nome: {{ $pizza->nome }}</h5>
                         <p class="card-text">Ingredienti: {{ $pizza->ingredienti }}</p>
+                        @if ($pizza->base_bianca)
+                            @php
+                                $pizza->base_bianca = 'Bianca';
+                            @endphp
+                        @else
+                            @php
+                                $pizza->base_bianca = 'Rossa';
+                            @endphp
+                        @endif
                         <p class="card-text">Base: {{ $pizza->base_bianca }}</p>
-                        <p class="card-text">Prezzo: {{ $pizza->prezzo }}</p>
+                        <p class="card-text">Prezzo: € {{ $pizza->prezzo }}</p>
                         <a href="{{ route('pizza.index') }}">Torna indietro</a>
                     </div>
                 </div>
