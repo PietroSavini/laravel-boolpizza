@@ -37,9 +37,6 @@
                                 </td>
                                 <td>{{ $pizza->prezzo }}€</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{ route('pizza.show', $pizza->id) }}">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
                                 </td>
                             </tr>
                         @endforeach
