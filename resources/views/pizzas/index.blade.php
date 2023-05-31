@@ -43,10 +43,12 @@
                                     <a class="btn btn-warning" href="{{ route('pizza.edit', $pizza->id) }}">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <form class="d-inline-block" action="{{ route('pizza.destroy', $pizza->id) }}" method="POST">
+                                    <form class="d-inline-block" action="{{ route('pizza.destroy', $pizza->id) }}"
+                                        method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Vuoi eliminare la pizza selezionata?')">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
