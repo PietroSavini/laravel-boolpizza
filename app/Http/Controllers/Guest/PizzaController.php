@@ -10,7 +10,6 @@ class PizzaController extends Controller
 {
     public function index()
     {
-        $pizzas = Pizza::all();
-        return view('welcome', compact('pizzas'));
+        return redirect()->route('pizza.index');
     }
 }
