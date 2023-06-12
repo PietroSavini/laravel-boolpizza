@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Guest\PizzaController;
+use App\Models\Ingredient;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class pizzaResource extends Controller
      */
     public function create()
     {
-        return view('pizzas.create');
+        $ingredients = Ingredient::all();
+        return view('pizzas.create', compact('ingredients'));
     }
 
     /**
@@ -40,12 +42,13 @@ class pizzaResource extends Controller
     {
         $data = $request->all();
         $pizza = new Pizza();
-        // $pizza->nome = $data['nome'];
-        // $pizza->ingredienti = $data['ingredienti'];
-        // $pizza->base_bianca = $data['base_bianca'];
-        // $pizza->prezzo = $data['prezzo'];
         $pizza->fill($data);
         $pizza->save();
+        $ingredients=$request->input('ingredients',[]);
+        if($ingredients){
+            $pizza->ingredients()->attach($request->ingredients);
+        }
+
         return redirect()->route('pizza.index');
     }
 

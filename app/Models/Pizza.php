@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pizza extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome', 'ingredienti', 'base_bianca', 'prezzo'];
+    protected $fillable = ['nome', 'base_bianca', 'prezzo'];
     public function ingredients()
     {
         return $this->belongsToMany(Ingredient::class);
