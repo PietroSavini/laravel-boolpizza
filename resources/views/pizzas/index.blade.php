@@ -22,7 +22,11 @@
                         @foreach ($pizzas as $pizza)
                             <tr>
                                 <th>{{ $pizza->nome }}</th>
-                                <td>{{ $pizza->ingredienti }}</td>
+                                <td>
+                                    @foreach ($pizza->ingredients as $ingredient)
+                                        {{ $ingredient->name }} {{ $loop->last ? "" : "," }}
+                                    @endforeach
+                                </td>
                                 <td>
                                     @if ($pizza->base_bianca)
                                         @php
