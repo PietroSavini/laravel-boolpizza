@@ -16,9 +16,17 @@
             </div>
 
             <div class="mb-3">
-                <label for="ingredienti" class="form-label">Ingredienti</label>
-                <input type="text" class="form-control" id="ingredienti" name="ingredienti"
-                    value="{{ $pizza->ingredienti }}">
+                @foreach ($ingredients as $ingredient)
+                    <div class="form-check">
+                        <label class="form-check-label" for="ingredient-{{ $ingredient->id }}">
+                            {{ $ingredient->name }}
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="{{ $ingredient->id }}"
+                            id="ingredient-{{ $ingredient->id }}" name="ingredients[]" @checked(old('ingredients')
+                                    ? in_array($ingredient->id, old('ingredients', []))
+                                    : $pizza->ingredients->contains($ingredient))>
+                    </div>
+                @endforeach
             </div>
 
             <div class="mb-3">

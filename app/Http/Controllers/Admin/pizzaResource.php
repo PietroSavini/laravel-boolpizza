@@ -72,8 +72,9 @@ class pizzaResource extends Controller
      */
     public function edit($id)
     {
+        $ingredients = Ingredient::all();
         $pizza = Pizza::findOrFail($id);
-        return view('pizzas.edit', compact('pizza'));
+        return view('pizzas.edit', compact('pizza', 'ingredients'));
     }
 
     /**
@@ -88,6 +89,13 @@ class pizzaResource extends Controller
         $data = $request->all();
         $pizza = Pizza::findOrFail($id);
         $pizza->update($data);
+        $ingredients = $request->input('ingredients', []);
+        if($ingredients) {
+            $pizza->ingredients()->sync($request->ingredients);
+        } else {
+            $pizza->ingredients()->detach($request->ingredients);
+        }
+
         return redirect()->route('pizza.index');
     }
 
