@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class apiController extends Controller
 {
     public function index(){
-        $pizzas = Pizza::all();
+        $pizzas = Pizza::with('ingredients')->get();
         return response()->json([
             'success'=> true,
             'results'=> $pizzas,
